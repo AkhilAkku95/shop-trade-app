@@ -1,0 +1,24 @@
+.offer-container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.offer-text {
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+}
+
+.offer-text button {
+  position: absolute;
+  float: left;
+  top: 12px;
+  right: -160px;
+  transform: translate(-50%, -50%);
+}
+
+.invite-button {
+  padding: 6px 14px 6px 14px;
+}

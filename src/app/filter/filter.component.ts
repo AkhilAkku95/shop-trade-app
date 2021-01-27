@@ -15,13 +15,15 @@ export class FilterComponent implements OnInit {
   selectedFilter = this.filterOptions[0];
   selectedSort = this.sortOptions[0];
   showSortOption = false;
+  selectedIndex = 0;
 
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
   }
 
-  onClickFilter(option: string) {
+  onClickFilter(option: string, index: number) {
+    this.selectedIndex = index;
     this.filterEvent.next(option);
     this.selectedFilter = option;
   }

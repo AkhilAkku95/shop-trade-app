@@ -1,21 +1,31 @@
-<div (mouseover)="toggleSize = !toggleSize" (mouseout)="toggleSize = !toggleSize">
-    <div class="pb-1 position-relative ">
+<div class="item">
+    <div class="pb-1 ">
         <img alt=" product image" [src]="product.image_src[0]" class="w-100 proImg" />
     </div>
-    <div *ngIf="!toggleSize" class="pad-10">
-        <div class="pad-top-btm-2">
+    <div class="item-meta-data">
+        <div class="font-size-16 line-height-19 font-weight-bold pt-2">
             {{product.vendor}}
         </div>
-        <div class="pad-top-btm-2">
+        <div class="font-size-14 line-height-16 font-weight-300 lite-gray pt-1 titleContent ">
             {{product.name}}
         </div>
     </div>
-    <div *ngIf="toggleSize" class="pad-10">
-        <div *ngFor="let option of product.options" class="pad-top-btm-2">
-            <div (click)="onClickSize(product.id, option.id)" class="row">{{getSize(option.value)}}</div>
+    <div class="item-options pt-2 pb-1">
+        <div class="float-left  ml-4" *ngFor="let option of product.options">
+            <div (click)="onClickSize(product.id, option.id)">
+                {{getSize(option.value)}}
+            </div>
         </div>
     </div>
-</div>
-<div class="pad-top-btm-2">
-    ₹{{product.price}} ₹{{product.compare_at_price}}
+    <div class="pt-1 position-absolute">
+        <div class="font-size-16 line-height-19 font-weight-bold float-left">
+            <span>&#36;</span>{{product.price}}
+        </div>
+        <div class="font-size-12 line-height-14 font-weight-300 lite-gray float-left ml-1 pt-1">
+            <span>&#36;</span> <del>{{product.compare_at_price}}</del>
+        </div>
+        <div class="font-size-12 line-height-14 font-weight-300 float-left ml-1 pt-1 lite-orange">
+            ({{getDiscountPrice(product.price, product.compare_at_price)}}% OFF)
+        </div>
+    </div>
 </div>

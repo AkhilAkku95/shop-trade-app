@@ -1,15 +1,20 @@
-<div class="row">
-    <div class="col-10">
-        <label>FILTERS:</label>
-        <div *ngFor="let option of filterOptions">
-            <button id="filterOption" (click)="onClickFilter(option)">{{option}}</button>
+<div class="row" style="margin-top: 30px;">
+    <div class="col-9 ">
+        <label class="float-left font-size-16 line-height-19 font-weight-bold" style="margin-top: 8px;">
+            FILTERS:</label>
+        <div *ngFor="let option of filterOptions; let i=index;">
+            <button [ngClass]="{'black border-black': selectedIndex === i}"
+                class="lite-gray float-left font-size-12 line-height-14 filter-spacing" id="filterOption"
+                (click)="onClickFilter(option,i)">{{option}}</button>
         </div>
     </div>
-    <div (mouseover)="showSortOption = !showSortOption" class="col-2">
-        <ul>
-            <label>Sort By:</label> <span>{{selectedSort}}</span>
+    <div (click)="showSortOption = !showSortOption" class="col-3 position-relative">
+        <button class="sort-spacing float-right font-size-12 line-height-14 font-weight-300">
+            <label>Sort By:</label> <span class="ml-1 font-weight-500">{{selectedSort}}</span>
+            <img class="ml-3" src="../../assets/Vector.png" alt="vector">
+        </button>
+        <ul *ngIf="showSortOption" class="pt-4 position-absolute">
             <div>
-                <!-- *ngIf="showSortOption" -->
                 <li *ngFor="let option of sortOptions" (click)="onClickSort(option)">
                     {{option}}
                 </li>

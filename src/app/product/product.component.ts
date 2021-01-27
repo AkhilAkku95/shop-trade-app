@@ -10,7 +10,6 @@ export class ProductComponent implements OnInit {
 
   @Input() product: IProduct;
 
-  toggleSize = false;
   constructor() { }
 
   ngOnInit(): void {
@@ -58,6 +57,15 @@ export class ProductComponent implements OnInit {
     } else {
       return;
     }
+  }
+
+  getDiscountPrice(postPrice: string, prePrice: string): number {
+    return Math.trunc((((Number(prePrice) - Number(postPrice)) / Number(prePrice)) * 100));
+  }
+
+  onClickSize(productId,productSizeId) {
+    console.log(productId + '---' + productSizeId);
+    
   }
 
 }
