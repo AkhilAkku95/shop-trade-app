@@ -1,0 +1,13 @@
+<div class="position-relative" style="margin-top: 150px;">
+
+    <app-breadcrumb></app-breadcrumb>
+    {{selectedFilter}} <span>({{products.length}} Products)</span>
+    <app-filter (sortEvent)="onSortList($event)" (filterEvent)="onFilterList($event)"></app-filter>
+
+    <div class="container">
+        <div class="productsInList float-left" *ngFor="let item of products; let i=index">
+            <app-product [product]="item"></app-product>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+.header {
+  position: fixed;
+  height: 70px;
+  left: 0px;
+  top: 0px;
+}
+
+.logo {
+  height: 38px;
+  width: 38px;
+  border-radius: 0px;
+
+}
+
+.logo-div {
+  margin: 16px 16px 25px 0;
+}
+
+.nav-div {
+  margin: 19px 0px 6px 100px;
+  left: 32px;
+}
+
+.cart-ellipse {
+  top: -15px;
+  right: -17px;
+}
+
+.cart-ellipse span {
+  padding: 5px 0;
+  display: inline-block;
+}

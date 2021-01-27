@@ -1,0 +1,21 @@
+<div (mouseover)="toggleSize = !toggleSize" (mouseout)="toggleSize = !toggleSize">
+    <div class="pb-1 position-relative ">
+        <img alt=" product image" [src]="product.image_src[0]" class="w-100 proImg" />
+    </div>
+    <div *ngIf="!toggleSize" class="pad-10">
+        <div class="pad-top-btm-2">
+            {{product.vendor}}
+        </div>
+        <div class="pad-top-btm-2">
+            {{product.name}}
+        </div>
+    </div>
+    <div *ngIf="toggleSize" class="pad-10">
+        <div *ngFor="let option of product.options" class="pad-top-btm-2">
+            <div (click)="onClickSize(product.id, option.id)" class="row">{{getSize(option.value)}}</div>
+        </div>
+    </div>
+</div>
+<div class="pad-top-btm-2">
+    ₹{{product.price}} ₹{{product.compare_at_price}}
+</div>

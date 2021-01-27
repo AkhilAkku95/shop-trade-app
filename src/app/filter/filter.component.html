@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col-10">
+        <label>FILTERS:</label>
+        <div *ngFor="let option of filterOptions">
+            <button id="filterOption" (click)="onClickFilter(option)">{{option}}</button>
+        </div>
+    </div>
+    <div (mouseover)="showSortOption = !showSortOption" class="col-2">
+        <ul>
+            <label>Sort By:</label> <span>{{selectedSort}}</span>
+            <div>
+                <!-- *ngIf="showSortOption" -->
+                <li *ngFor="let option of sortOptions" (click)="onClickSort(option)">
+                    {{option}}
+                </li>
+            </div>
+        </ul>
+    </div>
+</div>
