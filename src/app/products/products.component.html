@@ -1,15 +1,17 @@
 <div class="position-relative" style="margin-top: 70px;">
     <app-offer></app-offer>
-   
+
     <div class="container-fluid" style="margin-top: 10px;">
-    <app-breadcrumb></app-breadcrumb>
-    <div style="margin-top: 10px;">
-        <span class="font-size-20 line-height-23 font-weight-bold">{{selectedFilter}} </span>
-        <span class="lite-gray">({{products.length}} Products)</span>
-    </div>
-    <app-filter (sortEvent)="onSortList($event)" (filterEvent)="onFilterList($event)"></app-filter>
-    <img class="mt-4 mb-4" src="../../assets/Line 1.png" alt="line">
-    <div class="product float-left" *ngFor="let item of products; let i=index">
+        <app-breadcrumb></app-breadcrumb>
+        <div style="margin-top: 10px;">
+            <span class="font-size-20 line-height-23 font-weight-bold">{{selectedFilter}} </span>
+            <span class="lite-gray">({{products.length}} Products)</span>
+        </div>
+        <app-filter (sortEvent)="onSortList($event)" (filterEvent)="onFilterList($event)"></app-filter>
+        <div>
+            <img class="mt-4 mb-3 w-100" src="../../assets/Line 1.png" alt="line">
+        </div>
+        <div class="product float-left" *ngFor="let item of products; let i=index">
             <app-product [product]="item"></app-product>
         </div>
         <div class="clear"></div>

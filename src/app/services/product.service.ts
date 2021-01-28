@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
+import { of, Subject } from 'rxjs';
 import { Observable } from 'rxjs';
 import { IProduct } from '../interfaces/product.interface';
 
@@ -7,6 +7,9 @@ import { IProduct } from '../interfaces/product.interface';
   providedIn: 'root'
 })
 export class ProductService {
+
+  selectedProduct = new Subject<IProduct[]>();
+  selectedProductsCopy: IProduct[] = [];
 
   private data: IProduct[] = [
     {
@@ -908,8 +911,19 @@ export class ProductService {
   ];
 
   constructor() { }
-
+  
+  
   getProducts(): Observable<IProduct[]> {
     return of(this.data);
   }
+
+  updateSelectedProduct(products: Array<IProduct>): void {
+    this.selectedProduct.next(products);
+    console.log(this.selectedProduct, 'selected product');
+  }
+
+  selectedProductSubscriber(): Observable<IProduct[]> {
+    return this.selectedProduct.asObservable();
+  }  
+
 }

@@ -12,17 +12,20 @@
     </div>
     <div class="item-options pt-2 pb-1">
         <div class="float-left  ml-4" *ngFor="let option of product.options">
-            <div (click)="onClickSize(product.id, option.id)">
+            <div (click)="onClickSize(product, option.value)">
                 {{getSize(option.value)}}
             </div>
         </div>
+        <!-- <div class="font-size-14 line-height-16 font-weight-normal lite-gray">
+            Sizes: XS, S, M, L, XL, XXL
+        </div> -->
     </div>
     <div class="pt-1 position-absolute">
         <div class="font-size-16 line-height-19 font-weight-bold float-left">
             <span>&#36;</span>{{product.price}}
         </div>
         <div class="font-size-12 line-height-14 font-weight-300 lite-gray float-left ml-1 pt-1">
-            <span>&#36;</span> <del>{{product.compare_at_price}}</del>
+            <del><span>&#36;</span> {{product.compare_at_price}}</del>
         </div>
         <div class="font-size-12 line-height-14 font-weight-300 float-left ml-1 pt-1 lite-orange">
             ({{getDiscountPrice(product.price, product.compare_at_price)}}% OFF)

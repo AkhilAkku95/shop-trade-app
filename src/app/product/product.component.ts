@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IProduct } from '../interfaces/product.interface';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-product',
@@ -10,7 +11,7 @@ export class ProductComponent implements OnInit {
 
   @Input() product: IProduct;
 
-  constructor() { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
   }
@@ -63,9 +64,12 @@ export class ProductComponent implements OnInit {
     return Math.trunc((((Number(prePrice) - Number(postPrice)) / Number(prePrice)) * 100));
   }
 
-  onClickSize(productId,productSizeId) {
-    console.log(productId + '---' + productSizeId);
-    
+  onClickSize(product: IProduct, productSize: string) {
+
+    product.selected_size = this.getSize(productSize);
+    this.productService.selectedProductsCopy.push(product);
+
+    this.productService.updateSelectedProduct(this.productService.selectedProductsCopy);
   }
 
 }

@@ -6,6 +6,7 @@ export interface IProduct {
     price: string;
     tag: string;
     compare_at_price: string;
+    selected_size?: string;
     options: IOption[];
 }
 

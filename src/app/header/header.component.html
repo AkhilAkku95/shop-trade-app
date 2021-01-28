@@ -1,12 +1,13 @@
 <div class="container-fluid header">
     <div class="position relative">
         <div class="row">
-            <div class="col-1 position-absolute logo-div">
+            <div (click)="onClickShop()" class="col-1 position-absolute logo-div">
                 <img alt="Logo" src="../../assets/logo.png" class="logo" />
             </div>
             <div class="col-9 nav-div">
                 <ul class="nav justify-content-center">
-                    <li class=" pointer px-4  font-weight-normal font-size-14 line-height-16 black py-1">
+                    <li class=" pointer px-4  font-weight-normal font-size-14 line-height-16 black py-1"
+                        (click)="onClickShop()">
                         Shop
                         <img class="ml-1" src="../../assets/Vector.png" alt="vector">
                     </li>
@@ -28,12 +29,12 @@
                 <div class="float-left  mr-3 pointer">
                     <img src="../../assets/user-icon.png " alt="user-icon">
                 </div>
-                <div class="  float-left mr-3 pointer">
+                <div (click)="onClickCart()" class="float-left mr-3 pointer">
                     <img class="" src="../../assets/cart-icon.png" alt="cart-icon">
-                    <div class="cart-ellipse" style="top: -41px;">
+                    <div *ngIf="count" class="cart-ellipse" style="top: -41px;">
                         <img src="../../assets/Ellipse 10.png" alt="Ellipse-10">
                         <span class="position-absolute font-weight-300 font-size-12 line-height-14 count-icon">
-                            1
+                            {{count}}
                         </span>
                     </div>
                 </div>

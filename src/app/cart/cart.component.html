@@ -1,1 +1,50 @@
-<p>cart works!</p>
+<div class="container" style="margin-top: 73px;">
+    <h2>Cart</h2>
+
+    <div class="text-center font-size-16 line-height-19 font-weight-bold lite-gray" style="padding-block: 10%;">
+        <span *ngIf="products.length === 0">Go N Grab Some....</span>
+    </div>
+
+    <div *ngIf="products.length>0" class="price-detail">
+        <div class="mt-2  font-size-14 line-height-16 font-weight-300 lite-gray">
+            Total Amount : {{total}}
+        </div>
+    </div>
+
+    <div *ngFor="let product of products; let i=index">
+        <div class="selected-product mb-2">
+            <div class="">
+                <img alt=" product image" [src]="product.image_src[0]" class=" proImg" />
+            </div>
+            <img src="../../assets/Line 1.png" style="width: 685px;" alt="line">
+            <div class="remove-button-div">
+                <button (click)="onRemoveItem(i)" type="button"> Remove</button>
+            </div>
+            <div class="meta-data">
+
+                <div class="font-size-16 line-height-19 font-weight-bold">
+                    {{product.vendor}}
+                </div>
+                <div class="mt-2 font-size-14 line-height-16 font-weight-300 lite-gray">
+                    {{product.name}}
+                </div>
+                <div class="mt-2 font-size-14 line-height-16 font-weight-300 lite-gray">
+                    {{product.tag}}
+                </div>
+                <div class="mt-2 font-size-16 line-height-19 font-weight-bold">
+                    Size: {{product.selected_size}}
+                </div>
+            </div>
+            <div class="price-data mr-2">
+                <div class="font-size-16 line-height-19 font-weight-bold ">
+                    <span>&#36;</span> {{product.price}}
+                </div>
+                <div class="font-size-16 line-height-19 font-weight-bold lite-gray mt-1">
+                    <del><span>&#36;</span> {{product.compare_at_price}}</del>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

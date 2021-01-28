@@ -1,0 +1,39 @@
+.selected-product {
+  position: relative;
+  padding: 17px;
+  border: 1px solid #626462;
+  width: 725px;
+  height: 225px;
+}
+
+.proImg {
+  height: 150px;
+}
+
+.meta-data {
+  margin-left: 180px;
+  margin-top: -200px;
+}
+
+.remove-button-div {
+  text-align: center;
+  margin-top: -7px;
+}
+
+.remove-button-div button {
+  padding: 4px 16px 4px 16px;
+}
+
+.price-data {
+  margin-top: -88px;
+  float: right;
+}
+
+.price-detail {
+  float: right;
+  border: 1px solid #626462;
+  width: 220px;
+  height: 120px;
+  padding-top: 4%;
+  text-align: center;
+}
