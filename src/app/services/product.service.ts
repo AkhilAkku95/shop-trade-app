@@ -909,21 +909,18 @@ export class ProductService {
       ]
     },
   ];
-
   constructor() { }
-  
-  
+
   getProducts(): Observable<IProduct[]> {
     return of(this.data);
   }
 
   updateSelectedProduct(products: Array<IProduct>): void {
     this.selectedProduct.next(products);
-    console.log(this.selectedProduct, 'selected product');
   }
 
   selectedProductSubscriber(): Observable<IProduct[]> {
     return this.selectedProduct.asObservable();
-  }  
+  }
 
 }

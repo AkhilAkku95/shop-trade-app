@@ -25,8 +25,6 @@ export class ProductsComponent implements OnInit {
   }
 
   onSortList(event: string) {
-    console.log(event);
-
     switch (event) {
       case 'Recommended':
         this.getProductList();
@@ -35,11 +33,9 @@ export class ProductsComponent implements OnInit {
         this.products.reverse();
         break;
       case 'Price: High to Low':
-        debugger
         this.products.sort((a: IProduct, b: IProduct) => Number(b.price) - Number(a.price));
         break;
       case 'Price: Low to High':
-        debugger
         this.products.sort((a: IProduct, b: IProduct) => Number(a.price) - Number(b.price));
         break;
     }
