@@ -1,12 +1,7 @@
-.header {
+.header{
   position: fixed;
-  left: 0px;
-  top: 0px;
+  background-color: #fff;
   z-index: 999;
-  min-height: 70px;
-  background: #fff;
-  color: #fff;
-  width: 100%;
 }
 
 .logo {
@@ -24,17 +19,25 @@
   left: 32px;
 }
 
-.cart-ellipse {
-  position: relative;
-  top: -15px;
-  right: -17px;
+.count-icon {
+  display: inline-block;
+  top: -5px;
+  right: -6px;
+  background-color: #E64C09;
+  border-radius: 50%;
+  height: 18px;
+  width: 18px;
+  text-align: center;
+  padding: 2px 0 0 0;
+  color: #fff;
 }
 
-.cart-ellipse span {
-  padding: 5px 0;
-  display: inline-block;
+.icon {
+  width: 22px;
+  height: 22px;
 }
-.count-icon {
-  top: 2px;
-  right: 18px;
+
+.icon-cart {
+  width: 30px;
+  height: 30px;
 }

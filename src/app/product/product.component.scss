@@ -4,20 +4,21 @@
   text-overflow: ellipsis;
 }
 
-.item .item-options {
-  display: none;
-}
-.item .item-meta-data {
+.item {
   position: relative;
-  display: block;
+}
+
+
+.item-options {
+  position: absolute;
+  display: none;
+  bottom: 0px;
+  background-color: #fff;
+  left: 0;
+  right: 0;
+  height: 45px;
 }
 
 .item:hover .item-options {
-  position: relative;
   display: block;
-  margin-bottom: 21px;
-}
-
-.item:hover .item-meta-data {
-  display: none;
 }

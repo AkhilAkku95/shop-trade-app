@@ -8,17 +8,15 @@
                 (click)="onClickFilter(option,i)">{{option}}</button>
         </div>
     </div>
-    <div (click)="showSortOption = !showSortOption" class="col-3 position-relative">
-        <button class="sort-spacing float-right font-size-12 line-height-14 font-weight-300">
+    <div (click)="showSortOption = !showSortOption" class="col-3" style="text-align: end;">
+        <button class="sort-spacing position-relative  font-size-12 line-height-14 font-weight-300">
             <label>Sort By:</label> <span class="ml-1 font-weight-500">{{selectedSort}}</span>
             <img class="ml-3" src="../../assets/Vector.png" alt="vector">
         </button>
-        <ul *ngIf="showSortOption" class="pt-4 position-absolute">
-            <div>
-                <li *ngFor="let option of sortOptions" (click)="onClickSort(option)">
-                    {{option}}
-                </li>
-            </div>
+        <ul *ngIf="showSortOption" class="pt-4 position-absolute " style="left: 140px;">
+            <li *ngFor="let option of sortOptions" (click)="onClickSort(option)">
+                {{option}}
+            </li>
         </ul>
     </div>
 </div>

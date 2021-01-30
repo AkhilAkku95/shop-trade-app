@@ -27,7 +27,7 @@ export class ProductsComponent implements OnInit {
   onSortList(event: string) {
     switch (event) {
       case 'Recommended':
-        this.getProductList();
+        this.products.sort((a: IProduct, b: IProduct) => a.id - b.id);
         break;
       case `What's New`:
         this.products.reverse();
@@ -41,12 +41,33 @@ export class ProductsComponent implements OnInit {
     }
   }
 
-  onFilterList(event: string) {
-    this.selectedFilter = event;
+  onFilterList(event: any) {
+    this.selectedFilter = event.filter;
+    this.products = [];
+
     this.getProductList();
-    if (event !== 'All Products') {
-      this.products = this.products.filter((product) => product.tag.toLowerCase() === event.toLowerCase());
+    if (event.filter === 'All Products') {
+      this.onSortList(event.sort);
+      return;
     }
+
+    this.products = this.products.filter((product) => product.tag.toLowerCase() === event.filter.toLowerCase());
+
+    switch (event.sort) {
+      case 'Recommended':
+        this.products.sort((a: IProduct, b: IProduct) => a.id - b.id);
+        break;
+      case `What's New`:
+        this.products.reverse();
+        break;
+      case 'Price: High to Low':
+        this.products.sort((a: IProduct, b: IProduct) => Number(b.price) - Number(a.price));
+        break;
+      case 'Price: Low to High':
+        this.products.sort((a: IProduct, b: IProduct) => Number(a.price) - Number(b.price));
+        break;
+    }
+
   }
 
 }

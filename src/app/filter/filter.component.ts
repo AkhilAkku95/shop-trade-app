@@ -9,7 +9,6 @@ import { DataService } from '../services/data.service';
 export class FilterComponent implements OnInit {
 
   @Output() filterEvent = new EventEmitter<any>();
-  @Output() sortEvent = new EventEmitter<any>();
   filterOptions = this.dataService.filterOptions;
   sortOptions = this.dataService.sortOptions;
   selectedFilter = this.filterOptions[0];
@@ -24,13 +23,23 @@ export class FilterComponent implements OnInit {
 
   onClickFilter(option: string, index: number) {
     this.selectedIndex = index;
-    this.filterEvent.next(option);
     this.selectedFilter = option;
+    this.sendData();
   }
 
   onClickSort(option: string) {
-    this.sortEvent.next(option);
     this.selectedSort = option;
+    this.sendData();
   }
+
+  sendData() {
+    const filterData = {
+      filter: this.selectedFilter,
+      sort: this.selectedSort
+    }
+
+    this.filterEvent.next(filterData);
+  }
+
 
 }
